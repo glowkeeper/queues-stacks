@@ -1,3 +1,7 @@
+/* 
+Implementation of a Stack as a linked list
+*/
+
 export const stack = () => {
 
     let size = 0;

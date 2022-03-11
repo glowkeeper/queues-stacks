@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-Queue and stack fun with javascript. Linked list implementations.
+Queue and stack fun with javascript. Linked list implementations, where the queue is a double linked list, and the stack is a (single) linked list.
 
 ## Table of Contents
 

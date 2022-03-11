@@ -1,3 +1,7 @@
+/* 
+Implementation of a Queue as a double linked list
+*/
+
 export const queue = () => {
 
     let size = 0;
