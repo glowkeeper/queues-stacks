@@ -16,7 +16,6 @@ Queue and stack fun with javascript. Linked list implementations.
 ## Built Using
 
 - [node](https://nodejs.org/en/)
-- [Create React App](https://reactjs.org/)
 - [Jasmine](https://jasmine.github.io/)
 
 ## Install
