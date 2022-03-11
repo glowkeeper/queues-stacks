@@ -1,4 +1,4 @@
-import { stack } from '../src/utils/stack.mjs'
+import { stack } from '../src/stack.mjs'
 
 describe('push', function() {
     it('correctly pushes data', function() {

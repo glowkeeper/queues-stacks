@@ -1,4 +1,4 @@
-import { queue } from '../src/utils/queue.mjs'
+import { queue } from '../src/queue.mjs'
 
 describe('enqueues', function() {
     it('correctly enqueues data', function() {
