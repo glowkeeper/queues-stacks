@@ -1,36 +1,21 @@
 {
   "name": "queues-and-stacks",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0"
-  },
+  "version": "1.0.0",
+  "description": "Queue and stacks in javascript. Linked list implementation",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jasmine",
-    "eject": "react-scripts eject"
+    "test": "jasmine"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glowkeeper/queues-stacks.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Dr Steve Huckle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glowkeeper/queues-stacks/issues"
   },
+  "homepage": "https://github.com/glowkeeper/queues-stacks#readme",
   "devDependencies": {
     "jasmine": "^4.0.2"
   }
