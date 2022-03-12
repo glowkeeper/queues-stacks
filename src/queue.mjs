@@ -38,7 +38,7 @@ export const queue = () => {
 
         const list = [];
         let current = head;
-        while(current){
+        while (current) {
             list.push(current.data);
             current = current.previous;
         }

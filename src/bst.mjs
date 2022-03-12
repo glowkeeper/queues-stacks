@@ -1,6 +1,11 @@
 /* 
-Implementation of a binary search tree
-*/
+Implementation of a binary search tree (BST)
+A BST is also called an ordered or sorted binary tree, because it is a rooted binary tree data structure 
+whereby the root nodes each store a key greater than all the keys in the node's left subtree 
+and less than those in its right subtree. 
+*/ 
+
+import { queue } from './queue.mjs'
 
 class Node {
 
@@ -15,18 +20,6 @@ class Node {
 export const bst = () => {
     
     let root = null;
-
-    function findMinNode(node) {
-    
-        if (!node.left) {
-
-            return node;
-
-        } else {
-
-            return findMinNode(node.left);
-        }
-    }
 
     function insertNode(node, newNode) {
 
@@ -90,7 +83,7 @@ export const bst = () => {
           }
   
           // Deleting node with two children
-          const temp = findMinNode(node.right);
+          const temp = findMinimum(node.right);
           node.data = temp.data;    
           node.right = removeNode(node.right, node.data);
           return node;
@@ -114,6 +107,30 @@ export const bst = () => {
     function remove( data) {
 
       root = removeNode(root, data);
+    }
+
+    function findMinimum(node) {
+    
+      if (!node.left) {
+
+          return node;
+
+      } else {
+
+          return findMinimum(node.left);
+      }
+    }
+
+    function findMaximum(node) {
+    
+      if (!node.right) {
+
+          return node;
+
+      } else {
+
+          return findMaximum(node.left);
+      }
     }
     
     function getRoot() {
@@ -149,45 +166,79 @@ export const bst = () => {
       }
       return 0;
     }
+
+    //Breadth first traversal
+    function getBreadthFirst (node) {
+
+      const myQueue = queue();
+      myQueue.enQueue(node);
+      const values = [];
+
+      while (myQueue.getSize()) {
+        const currentNode = myQueue.deQueue();
+        values.push(currentNode.data);
+        if (currentNode.left) {
+          myQueue.enQueue(currentNode.left)
+        }
+        if (currentNode.right) {
+          myQueue.enQueue(currentNode.right)
+        }
+      }
+
+      return values;
+    }
     
-    function getOrderedArray(node, thisArray = []) {
+    // Inorder traversal (Left-Root-Right)
+    function getOrdered(node, thisArray = []) {
       
       if (node) {
 
-        getOrderedArray(node.left, thisArray);
+        getOrdered(node.left, thisArray);
         thisArray.push(node.data);
-        getOrderedArray(node.right, thisArray);
+        getOrdered(node.right, thisArray);
 
       } 
 
       return thisArray;
     }
 
-    function getPostOrderedArray(node, thisArray = []) {
+    //Postorder traversal (Left-Right-Root)
+    function getPostOrdered(node, thisArray = []) {
       
       if (node) {
 
-        getPostOrderedArray(node.left, thisArray);
-        getPostOrderedArray(node.right, thisArray);
+        getPostOrdered(node.left, thisArray);
+        getPostOrdered(node.right, thisArray);
         thisArray.push(node.data);
-
       } 
 
       return thisArray;
     }
 
-    function getPreOrderedArray(node, thisArray = []) {
+    // Preorder traversal (Root-Left-Right)
+    function getPreOrdered(node, thisArray = []) {
       
       if (node) {
 
         thisArray.push(node.data);
-        getPreOrderedArray(node.left, thisArray);
-        getPreOrderedArray(node.right, thisArray);
-
+        getPreOrdered(node.left, thisArray);
+        getPreOrdered(node.right, thisArray);
       } 
 
       return thisArray;
     }
 
-    return { add, remove, getRoot, search, getSize, getOrderedArray, getPostOrderedArray, getPreOrderedArray }
+    return { 
+      add, 
+      remove, 
+      getRoot, 
+      findMinimum, 
+      findMaximum, 
+      search, 
+      getSize, 
+      getBreadthFirst,
+      getOrdered, 
+      getPostOrdered, 
+      getPreOrdered
+    }
   }

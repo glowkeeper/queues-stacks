@@ -14,7 +14,7 @@ describe('add', function() {
         tree.add(12);
         tree.add(11);
         const myRoot = tree.getRoot();       
-        const myArray = tree.getOrderedArray(myRoot);
+        const myArray = tree.getOrdered(myRoot);
         //console.log('my added array', myArray);
         expect(myArray).toEqual([4, 8, 9, 10, 11, 12, 15]);
     })
@@ -33,9 +33,43 @@ describe('remove', function() {
         tree.add(11);
         tree.remove(9)
         const myRoot = tree.getRoot();
-        const myArray = tree.getOrderedArray(myRoot);
+        const myArray = tree.getOrdered(myRoot);
         //console.log('my removed array', myArray);
         expect(myArray).toEqual([4, 8, 10, 11, 12, 15]);
+    })
+})
+
+describe('minimum', function() {
+    it('correctly finds minimum', function() {
+
+        const tree = bst();
+        tree.add(15)
+        tree.add(10);
+        tree.add(8);
+        tree.add(4);
+        tree.add(9);
+        tree.add(12);
+        tree.add(11);
+        const myRoot = tree.getRoot();
+        const minimum = tree.findMinimum(myRoot);
+        expect(minimum.data).toEqual(4);
+    })
+})
+
+describe('maximum', function() {
+    it('correctly finds maximum', function() {
+
+        const tree = bst();
+        tree.add(15)
+        tree.add(10);
+        tree.add(8);
+        tree.add(4);
+        tree.add(9);
+        tree.add(12);
+        tree.add(11);
+        const myRoot = tree.getRoot();
+        const minimum = tree.findMaximum(myRoot);
+        expect(minimum.data).toEqual(15);
     })
 })
 
@@ -74,6 +108,33 @@ describe('size', function() {
     })
 })
 
+describe('breadth', function() {
+    it('correctly traverses breadth first', function() {
+
+        //          15
+        //        /
+        //       10
+        //      /  \
+        //     8    12
+        //    / \   /
+        //   4   9 11 
+
+        const tree = bst();
+        tree.add(15)
+        tree.add(10);
+        tree.add(8);
+        tree.add(4);
+        tree.add(9);
+        tree.add(12);
+        tree.add(11);
+        const myRoot = tree.getRoot();
+        const myArray = tree.getBreadthFirst(myRoot);
+        console.log('my breadth array', myArray);
+        expect(myArray).toEqual([15, 10, 8, 12, 4, 9, 11]);
+    })
+})
+
+
 describe('ordered', function() {
     it('correctly gets ordered tree', function() {
 
@@ -86,9 +147,9 @@ describe('ordered', function() {
         tree.add(12);
         tree.add(11);
         const myRoot = tree.getRoot();
-        const myArray = tree.getOrderedArray(myRoot);
-        //const myPreArray = tree.getPreOrderedArray(myRoot);
-        //const myPostArray = tree.getPostOrderedArray(myRoot);
+        const myArray = tree.getOrdered(myRoot);
+        //const myPreArray = tree.getPreOrdered(myRoot);
+        //const myPostArray = tree.getPostOrdered(myRoot);
         //console.log('my array', myArray);
         //console.log('my pre array', myPreArray);
         //console.log('my post array', myPostArray);

@@ -28,7 +28,7 @@ export const stack = () => {
     function toArray() {
         const list = [];
         let current = head;
-        while(current){
+        while (current) {
             list.push(current.data);
             current = current.next;
         }
