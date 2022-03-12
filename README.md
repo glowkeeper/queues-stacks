@@ -4,6 +4,7 @@
 
 Queue and stack fun with javascript. Linked list implementations, where the queue is a double linked list, and the stack is a (single) linked list.
 
+Added some (binary search) tree fun, too :)
 ## Table of Contents
 
 - [Built Using](#built-using)  
