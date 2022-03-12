@@ -16,34 +16,89 @@ export const bst = () => {
     
     let root = null;
 
-    function insertNode(node, newNode)
-    {
+    function findMinNode(node) {
+    
+        if (!node.left) {
+
+            return node;
+
+        } else {
+
+            return findMinNode(node.left);
+        }
+    }
+
+    function insertNode(node, newNode) {
+
         if (newNode.data < node.data) {
 
-            if (!node.left) {
-              
-              node.left = newNode;
+          if (!node.left) {
+            
+            node.left = newNode;
 
-            } else {
+          } else {
 
-                insertNode(node.left, newNode);
-            }   
+            insertNode(node.left, newNode);
+          }   
                 
         } else {
 
-            if (!node.right) {
+          if (!node.right) {
 
-                node.right = newNode;
+            node.right = newNode;
 
-            } else {
-    
-              insertNode(node.right, newNode);
-            }
+          } else {
+  
+            insertNode(node.right, newNode);
+          }
         }
     }
+
+    function removeNode(node, data) {
+            
+        if (!node) {
+          
+          return null;
+
+        } else if (data < node.data) {
+
+          node.left = removeNode(node.left, data);
+          return node;
+
+        } else if (data > node.data) {
+
+          node.right = removeNode(node.right, data);
+          return node;
+
+        } else {
+
+          // deleting node with no children
+          if (!node.left && !node.right) {
+            return null;
+          }
+  
+          // deleting node with one child
+          if (!node.left) {
+
+            node = node.right;
+            return node;
+
+          } else if (!node.right) {
+            
+            node = node.left;
+            return node;
+          }
+  
+          // Deleting node with two children
+          const temp = findMinNode(node.right);
+          node.data = temp.data;    
+          node.right = removeNode(node.right, node.data);
+          return node;
+        }    
+    }
       
-    function add(data)
-    {
+    function add(data) {
+
         const newNode = new Node(data);  
 
         if (!root) {
@@ -55,8 +110,14 @@ export const bst = () => {
             insertNode(root, newNode);
         }
     }  
+
+    function remove( data) {
+
+      root = removeNode(root, data);
+    }
     
     function getRoot() {
+
       return root;
     }    
   
@@ -128,5 +189,5 @@ export const bst = () => {
       return thisArray;
     }
 
-    return { add, getRoot, search, getSize, getOrderedArray, getPostOrderedArray, getPreOrderedArray }
+    return { add, remove, getRoot, search, getSize, getOrderedArray, getPostOrderedArray, getPreOrderedArray }
   }
