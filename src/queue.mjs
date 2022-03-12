@@ -34,7 +34,6 @@ export const queue = () => {
         return size;
     }
 
-
     function toArray() {
 
         const list = [];
