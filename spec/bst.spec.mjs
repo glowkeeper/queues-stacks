@@ -111,7 +111,7 @@ describe('size', function() {
 describe('breadth', function() {
     it('correctly traverses breadth first', function() {
 
-        //          15
+        //         15
         //        /
         //       10
         //      /  \
@@ -129,7 +129,7 @@ describe('breadth', function() {
         tree.add(11);
         const myRoot = tree.getRoot();
         const myArray = tree.getBreadthFirst(myRoot);
-        console.log('my breadth array', myArray);
+        //console.log('my breadth array', myArray);
         expect(myArray).toEqual([15, 10, 8, 12, 4, 9, 11]);
     })
 })

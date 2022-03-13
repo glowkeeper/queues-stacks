@@ -31,6 +31,21 @@ describe('pop', function() {
     })
 })
 
+describe('top', function() {
+    it('correctly gets top of stack', function() {
+
+        const myStack = stack();
+        myStack.push(1);
+        myStack.push(2);
+        myStack.push(3);
+       
+        const top = myStack.top();
+        // console.log('pushes array', thisStack);
+       
+        expect(top).toEqual(3);
+    })
+})
+
 describe('push stack size', function() {
     it('correctly gets size after pushes', function() {
 

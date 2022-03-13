@@ -21,6 +21,10 @@ export const stack = () => {
         return oldHead.data;
     }
 
+    function top() {
+        return head.data;
+    }
+
     function getSize() {
         return size;
     }
@@ -36,5 +40,5 @@ export const stack = () => {
         return list;       
     }
 
-    return { push, pop, getSize, toArray };
+    return { push, pop, top, getSize, toArray };
 }
